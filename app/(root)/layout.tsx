@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import StickyCart from "@/components/shared/StickyCart";
-import Provider from "./Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,12 +19,15 @@ export default function RootLayout({
 }>) {
 
   return (
-      <html lang="en">
-        <body className={inter.className}>
-          <Provider>
-            {children}
-          </Provider>
-        </body>
-      </html>
+    <>
+      <Header/>
+        <section className = "main-container">
+          <div className = "w-full max-w-screen-2xl px-3">
+              {children}
+          </div>
+        </section>
+        <StickyCart/>
+      <Footer/>
+    </>
   );
 }
