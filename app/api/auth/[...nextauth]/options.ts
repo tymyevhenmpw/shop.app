@@ -12,8 +12,8 @@ export const options: NextAuthOptions = {
 
   providers: [
     GoogleProvider({
-      clientId: '767104947000-v5q3202gojgfrukrqbbv3ncq28rfiqfs.apps.googleusercontent.com',
-      clientSecret: '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',
+      clientId: process.env.GOOGLEPROVIDER_CLIENTID ? process.env.GOOGLEPROVIDER_CLIENTID : '',
+      clientSecret: process.env.GOOGLEPROVIDER_CLIENTSECRET ? process.env.GOOGLEPROVIDER_CLIENTSECRET : '',
       profile(profile:any){
         return{
           ...profile,
@@ -52,7 +52,7 @@ export const options: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
-  secret: 'siodffjisdhjkfdsiojiojhiuoho',
+  secret: process.env.SECRET,
   pages: {
     signIn: "/login",
   },
